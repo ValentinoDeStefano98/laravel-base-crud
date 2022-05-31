@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 
 @section('content')
-    <div class="text-center">
+    <div class="container text-center">
         <h2 class="text-primary text-center">{{$comic->title}}</h2>
         <img src="{{$comic->thumb}}" alt="copertina">
         <p>{{$comic->description}}</p>
