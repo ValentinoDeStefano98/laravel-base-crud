@@ -36,13 +36,4 @@
             @endforelse
         </tbody>
     </table>
-
-    @forelse ($comics as $comic)
-
-        <h1>{{$comic -> title}}</h1>
-
-    @empty
-        <h2>Il database è vuoto</h2>
-
-    @endforelse
 @endsection
