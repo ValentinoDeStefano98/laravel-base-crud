@@ -33,7 +33,8 @@
                 </div>
                 <div class="col-6 pb-4">
                     <label for="description" class="form-label">Descrizione</label>
-                    <input type="text" id="description" class="form-control" name="description" value="{{$comic->description }}" required>
+                    <textarea type="text" id="description" class="form-control" name="description" required>{{$comic->description }}
+                    </textarea>
                 </div>
                 <div class="col-6 pb-4">
                     <label for="price" class="form-label">Prezzo</label>
