@@ -1,8 +1,11 @@
 @extends('layouts.layout')
 
 @section('content')
-
-    <h1 class="text-primary text-center">Boolean-Comics</h1>
+    <div class="header-container py-5">
+        
+    </div>
+    <h1 class="text-primary text-center py-4">Boolean-Comics</h1>
+    
 
     {{-- messaggio di avvenuta eliminazione --}}
     @if (session('message'))
@@ -11,7 +14,7 @@
         </div>
     @endif
 
-    <table class="table">
+    <table class="table table-products my-5">
         <thead>
             <tr>
             <th scope="col">Copertina</th>
@@ -31,23 +34,18 @@
                     </td>
                     <td>{{$comic->title}}</td>
                     <td class="w-50">{{$comic->description}}</td>
-                    <td class="w-25">{{$comic->price}}$</td>
+                    <td>{{$comic->price}}$</td>
                     <td>{{$comic->series}}</td>
                     <td class="w-25">{{$comic->sale_date}}</td>
-                    <td>{{$comic->type}}</td>
-                    <td>
+                    <td class="w-25">{{$comic->type}}</td>
+                    <td class="d-flex flex-column">
                         <a href="{{route('comics.show', $comic->id)}}" type="button" class="btn btn-primary">Dettagli</a>
-                    </td>
-                    <td>
-                        <a href="{{route('comics.edit', $comic->id)}}" type="button" class="btn btn-warning">Modifica</a>
-                    </td>
-                    <td>
+                        <a href="{{route('comics.edit', $comic->id)}}" type="button" class="btn btn-warning my-3">Modifica</a>
                         <form action="{{ route('comics.destroy', $comic->id) }}" method="POST" class="delete-form" data-name="{{$comic->title}}">
                             @method('DELETE')
                             @csrf
                             <button class="btn btn-danger" type="submit">Elimina</button>
                         </form>
-                        
                     </td>
                 </tr>
             @empty
