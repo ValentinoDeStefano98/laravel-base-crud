@@ -4,6 +4,13 @@
 
     <h1 class="text-primary text-center">Boolean-Comics</h1>
 
+    {{-- messaggio di avvenuta eliminazione --}}
+    @if (session('message'))
+        <div class="alert alert-success">
+            {{session('message')}}
+        </div>
+    @endif
+
     <table class="table">
         <thead>
             <tr>
@@ -29,10 +36,18 @@
                     <td class="w-25">{{$comic->sale_date}}</td>
                     <td>{{$comic->type}}</td>
                     <td>
-                        <a href="{{route('comics.show', $comic->id)}}" type="button" class="btn btn-primary">Dettagli</button></a>
+                        <a href="{{route('comics.show', $comic->id)}}" type="button" class="btn btn-primary">Dettagli</a>
                     </td>
                     <td>
-                        <a href="{{route('comics.edit', $comic->id)}}" type="button" class="btn btn-warning">Modifica</button></a>
+                        <a href="{{route('comics.edit', $comic->id)}}" type="button" class="btn btn-warning">Modifica</a>
+                    </td>
+                    <td>
+                        <form action="{{ route('comics.destroy', $comic->id) }}" method="POST" class="delete-form" data-name="{{$comic->title}}">
+                            @method('DELETE')
+                            @csrf
+                            <button class="btn btn-danger" type="submit">Elimina</button>
+                        </form>
+                        
                     </td>
                 </tr>
             @empty
@@ -40,4 +55,8 @@
             @endforelse
         </tbody>
     </table>
+@endsection
+
+@section('delete-message')
+    <script src="{{asset('js/deleteMessage.js')}}"></script>
 @endsection
