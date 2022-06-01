@@ -42,7 +42,7 @@
                         <a href="{{route('comics.edit', $comic->id)}}" type="button" class="btn btn-warning">Modifica</a>
                     </td>
                     <td>
-                        <form action="{{ route('comics.destroy', $comic->id) }}" method="POST">
+                        <form action="{{ route('comics.destroy', $comic->id) }}" method="POST" class="delete-form" data-name="{{$comic->title}}">
                             @method('DELETE')
                             @csrf
                             <button class="btn btn-danger" type="submit">Elimina</button>
@@ -55,4 +55,8 @@
             @endforelse
         </tbody>
     </table>
+@endsection
+
+@section('delete-message')
+    <script src="{{asset('js/deleteMessage.js')}}"></script>
 @endsection

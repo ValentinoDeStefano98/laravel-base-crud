@@ -12,7 +12,10 @@
     @include('includes.header')
 
     @yield('content')
-    
+     
+    {{-- JS Bootstrap --}}
     <script src=" {{ asset('js/app.js') }} "></script>
+    {{-- JS Delete Message --}}
+    @yield('delete-message')
 </body>
 </html>
