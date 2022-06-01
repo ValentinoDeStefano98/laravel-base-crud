@@ -54,8 +54,8 @@
                 </div>
                 <div class="col-6 py-4">
                     <select class="form-select" aria-label="Default select example" name="type">
-                        <option @if($comic->type === 'comic book') selected @endif>Comic Book</option>
-                        <option @if($comic->type === 'graphic novel') selected @endif>Graphic Novel</option>
+                        <option @if(old('type',$comic->type === 'comic book')) selected @endif>Comic Book</option>
+                        <option @if(old('type',$comic->type === 'graphic novel')) selected @endif>Graphic Novel</option>
                     </select>
                 </div>
             </div>
