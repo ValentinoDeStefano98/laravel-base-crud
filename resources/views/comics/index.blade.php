@@ -24,10 +24,10 @@
                         <img src="{{$comic->thumb}}" alt="copertina" class="img-fluid">
                     </td>
                     <td>{{$comic->title}}</td>
-                    <td>{{$comic->description}}</td>
-                    <td>{{$comic->price}}</td>
+                    <td class="w-50">{{$comic->description}}</td>
+                    <td class="w-25">{{$comic->price}}$</td>
                     <td>{{$comic->series}}</td>
-                    <td>{{$comic->sale_date}}</td>
+                    <td class="w-25">{{$comic->sale_date}}</td>
                     <td>{{$comic->type}}</td>
                     <td><a href="{{route('comics.show', $comic->id)}}" type="button" class="btn btn-primary">Dettagli</button></a>
                 </tr>
