@@ -114,6 +114,6 @@ class ComicsController extends Controller
     {
         $comic->delete();
 
-        return redirect()->route('comics.index');
+        return redirect()->route('comics.index')->with('message', "Hai eliminato: $comic->title");
     }
 }

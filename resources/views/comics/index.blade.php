@@ -4,6 +4,13 @@
 
     <h1 class="text-primary text-center">Boolean-Comics</h1>
 
+    {{-- messaggio di avvenuta eliminazione --}}
+    @if (session('message'))
+        <div class="alert alert-success">
+            {{session('message')}}
+        </div>
+    @endif
+
     <table class="table">
         <thead>
             <tr>
